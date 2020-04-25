@@ -8,7 +8,6 @@ class Print_lib
 {
 public:
   Print_lib(SoftwareSerial* ss);
-
   Print_lib(HardwareSerial* ss);
 
   void Begin(const uint32_t baud);
@@ -40,16 +39,18 @@ public:
   void Print_array(const char* string,
                    const uint8_t array[],
                    const uint8_t length,
-                   const bool hex);
+                   const uint8_t format = DEC);
 
   void Print_array(const uint8_t array[],
                    const uint8_t length,
-                   const bool hex = true);
+                   const uint8_t format = DEC);
 
 
-  void Print_msg(const Msg_data msg, bool hex);
+  void Print_msg(const Msg_data msg, const uint8_t format = DEC);
 
-  void Print_msg(const char* string, const Msg_data msg, bool hex);
+  void Print_msg(const char* string,
+                 const Msg_data msg,
+                 const uint8_t format = DEC);
 
 protected:
 
